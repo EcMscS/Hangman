@@ -13,7 +13,10 @@
 		7E0658A523CE8F5100284F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E0658A323CE8F5100284F0C /* Main.storyboard */; };
 		7E0658A723CE8F5400284F0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0658A623CE8F5400284F0C /* Assets.xcassets */; };
 		7E0658AA23CE8F5400284F0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E0658A823CE8F5400284F0C /* LaunchScreen.storyboard */; };
+		7E287FF023E24EAA001168F5 /* HangmanStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E287FEF23E24EAA001168F5 /* HangmanStatusLabel.swift */; };
+		7E287FF223E25019001168F5 /* WordLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E287FF123E25019001168F5 /* WordLabel.swift */; };
 		7EAD0F1323D6E37100D4C64E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7EAD0F1223D6E37100D4C64E /* words.txt */; };
+		7EDCDF1A23E2052300F20EEA /* LetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCDF1923E2052300F20EEA /* LetterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,10 @@
 		7E0658A623CE8F5400284F0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E0658A923CE8F5400284F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E0658AB23CE8F5400284F0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E287FEF23E24EAA001168F5 /* HangmanStatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanStatusLabel.swift; sourceTree = "<group>"; };
+		7E287FF123E25019001168F5 /* WordLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLabel.swift; sourceTree = "<group>"; };
 		7EAD0F1223D6E37100D4C64E /* words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		7EDCDF1923E2052300F20EEA /* LetterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 				7E06589D23CE8F5100284F0C /* AppDelegate.swift */,
 				7E06589F23CE8F5100284F0C /* SceneDelegate.swift */,
 				7E0658A123CE8F5100284F0C /* ViewController.swift */,
+				7E287FF523E2577D001168F5 /* Views */,
 				7E0658A323CE8F5100284F0C /* Main.storyboard */,
 				7E0658A623CE8F5400284F0C /* Assets.xcassets */,
 				7E0658A823CE8F5400284F0C /* LaunchScreen.storyboard */,
@@ -68,6 +75,16 @@
 				7EAD0F1223D6E37100D4C64E /* words.txt */,
 			);
 			path = Hangman;
+			sourceTree = "<group>";
+		};
+		7E287FF523E2577D001168F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E287FEF23E24EAA001168F5 /* HangmanStatusLabel.swift */,
+				7E287FF123E25019001168F5 /* WordLabel.swift */,
+				7EDCDF1923E2052300F20EEA /* LetterButton.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E0658A223CE8F5100284F0C /* ViewController.swift in Sources */,
+				7EDCDF1A23E2052300F20EEA /* LetterButton.swift in Sources */,
 				7E06589E23CE8F5100284F0C /* AppDelegate.swift in Sources */,
+				7E287FF023E24EAA001168F5 /* HangmanStatusLabel.swift in Sources */,
+				7E287FF223E25019001168F5 /* WordLabel.swift in Sources */,
 				7E0658A023CE8F5100284F0C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

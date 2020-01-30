@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var hangmanStatusLabel: UILabel!
-    var wordLabel: UILabel!
-    var letterButtons = [UIButton]()
-    var activatedButtons = [UIButton]()  // Stores pressed and hidden letter buttons so they can be restored in new game
+    var hangmanStatusLabel: HangmanStatusLabel!
+    var wordLabel: WordLabel!
+    var letterButtons = [LetterButton]()
+    var activatedButtons = [LetterButton]()  // Stores pressed and hidden letter buttons so they can be restored in new game
     
     var wordBank = [String]()
     var word: String = ""
@@ -39,20 +39,10 @@ class ViewController: UIViewController {
         view = UIView()
         view.backgroundColor = .white
         
-        hangmanStatusLabel = UILabel()
-        hangmanStatusLabel.backgroundColor = .systemBlue
-        hangmanStatusLabel.translatesAutoresizingMaskIntoConstraints = false
-        hangmanStatusLabel.textAlignment = .center
-        hangmanStatusLabel.font = UIFont.systemFont(ofSize: 32)
-        hangmanStatusLabel.text = "7 lives left!"
+        hangmanStatusLabel = HangmanStatusLabel()
         view.addSubview(hangmanStatusLabel)
         
-        wordLabel = UILabel()
-        wordLabel.backgroundColor = .systemBlue
-        wordLabel.translatesAutoresizingMaskIntoConstraints = false
-        wordLabel.textAlignment = .center
-        wordLabel.font = UIFont.systemFont(ofSize: 34)
-        wordLabel.text = " "
+        wordLabel = WordLabel()
         view.addSubview(wordLabel)
         
         // Create container view for letter buttons
@@ -83,10 +73,7 @@ class ViewController: UIViewController {
         var buttonIndex = 0
         for row in 0..<5 {
             for column in 0..<6 {
-                let letterButton = UIButton(type: .system)
-                letterButton.layer.borderWidth = 1
-                letterButton.layer.borderColor = UIColor.systemBlue.cgColor
-                letterButton.layer.cornerRadius = 10
+                let letterButton = LetterButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 28)
                 letterButton.setTitle(buttonText[buttonIndex], for: .normal)
                 letterButton.frame = CGRect(x: column * buttonWidth, y: row * buttonHeight, width: buttonWidth, height: buttonHeight)
@@ -143,7 +130,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func letterTapped(_ sender: UIButton) {
+    @objc func letterTapped(_ sender: LetterButton) {
         guard let buttonLetter = sender.titleLabel?.text else { return }
         if wordLetters.contains(buttonLetter) {
             for index in 0...(word.count - 1) {
@@ -172,7 +159,7 @@ class ViewController: UIViewController {
     }
     
     func lostGame() {
-        let ac = UIAlertController(title: "Sorry, game over!", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Sorry, game over!", message: "The word was \(word).", preferredStyle: .alert)
         let newGameAction = UIAlertAction(title: "New Game", style: .default) { (action) in
             self.newGame()
         }
