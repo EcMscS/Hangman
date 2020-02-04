@@ -12,16 +12,24 @@ class HangmanStatusLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .systemBlue
-        translatesAutoresizingMaskIntoConstraints = false
-        textAlignment = .center
-        font = UIFont.systemFont(ofSize: 32)
-        text = "7 lives left!"
+        configure()
+    }
+    
+    init(textLabel: String, fontSize: CGFloat) {
+        super.init(frame: .zero)
+        font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        text = textLabel
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
+        backgroundColor = .systemBlue
+        translatesAutoresizingMaskIntoConstraints = false
+        textAlignment = .center
     }
     
 }

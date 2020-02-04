@@ -35,25 +35,52 @@ class ViewController: UIViewController {
         }
     }
     
-    override func loadView() {
-        view = UIView()
-        view.backgroundColor = .white
-        
-        hangmanStatusLabel = HangmanStatusLabel()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViewController()
+        configureStatusLabel()
+        configureWordLabel()
+        configureButtonView()
+        loadWordBank()
+        startGame()
+    }
+    
+    
+    func configureViewController() {
+        title = "Hangman"
+        view.backgroundColor = .systemBackground
+    }
+    
+    func configureStatusLabel() {
+        hangmanStatusLabel = HangmanStatusLabel.init(textLabel: "7 Lives Left", fontSize: 32)
         view.addSubview(hangmanStatusLabel)
         
+        NSLayoutConstraint.activate([
+            hangmanStatusLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50),
+            hangmanStatusLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            hangmanStatusLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+        ])
+    }
+    
+    func configureWordLabel() {
         wordLabel = WordLabel()
         view.addSubview(wordLabel)
         
+        NSLayoutConstraint.activate([
+            wordLabel.topAnchor.constraint(equalTo: hangmanStatusLabel.bottomAnchor, constant: 50),
+            wordLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            wordLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        ])
+    }
+    
+    func configureButtonView() {
         // Create container view for letter buttons
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
-            hangmanStatusLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50),
-            hangmanStatusLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            hangmanStatusLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
             
             wordLabel.topAnchor.constraint(equalTo: hangmanStatusLabel.bottomAnchor, constant: 50),
             wordLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
@@ -92,16 +119,7 @@ class ViewController: UIViewController {
             letterButtons[buttonIndex].isHidden = true
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "Hangman"
-        
-        loadWordBank()
-        startGame()
-    }
-    
+
     func loadWordBank() {
         // Read from file words.txt and load words into wordBank array
         if let wordsURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
