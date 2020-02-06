@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     func configureWordLabel() {
-        wordLabel = WordLabel()
+        wordLabel = WordLabel.init(textLabel: "", fontSize: 40)
         view.addSubview(wordLabel)
         
         NSLayoutConstraint.activate([
@@ -80,12 +80,6 @@ class ViewController: UIViewController {
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate([
-
-            
-            wordLabel.topAnchor.constraint(equalTo: hangmanStatusLabel.bottomAnchor, constant: 50),
-            wordLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            wordLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            
             buttonsView.widthAnchor.constraint(equalToConstant: 300),
             buttonsView.heightAnchor.constraint(equalToConstant: 250),
             buttonsView.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 50),
