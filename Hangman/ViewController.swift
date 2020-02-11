@@ -45,9 +45,9 @@ class ViewController: UIViewController {
         startGame()
     }
     
-    
     func configureViewController() {
         title = "Hangman"
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
     }
     
